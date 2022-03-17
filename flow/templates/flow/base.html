@@ -1,4 +1,5 @@
 {% load bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,14 +9,17 @@
     <title>Assesment</title>
     {% block styles %}
         {% bootstrap_css %}
+        <link rel="stylesheet" href="{% static 'css/index.css' %}">
     {% endblock %}
 </head>
 <body>
     {% include 'includes/nav.html' %}
-    {% block content%}
-    {% endblock %}
-    {% block scripts %}
+    <div class="container">
+        {% block content%}
+        {% endblock %}
+        {% block scripts %}
         {% bootstrap_javascript %}
-    {% endblock %}
+        {% endblock %}
+    </div>
 </body>
 </html>
