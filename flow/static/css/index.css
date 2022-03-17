@@ -1,3 +1,18 @@
 .container {
    padding: 2rem;
 }
+
+.nav-brand {
+   font-weight: bold !important;
+}
+
+.content {
+   margin-top: 5rem;
+}
+
+hr {
+   background-color: #27ace0;
+   border: none;
+   height: 3px !important;
+}
+

@@ -3,13 +3,37 @@
 {% block content %}
    <p>Select option below</p>
    <form>
-    <select class="form-select" name="" id="">
+    <select class="form-select" name="extension" id="">
         <option value="sql">SQL</option>
         <option value="xml">XML</option>
         <option value="csv">CSV</option>
         <option value="json">JSON</option>
+        <option value="" selected>ALL</option>
     </select>
     <br>    
-    <button type="submit">Filter</button>
+    <button type="submit" class="btn btn-primary">Filter</button>
    </form>
+   <hr>
+
+   <div class="content">
+       {% if docs%}
+            <div class="row">
+                {% for doc in docs %}
+                    <div class="col-md-4">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <p class="card-text">{{ doc.description }}</p>
+                                <a href="{% url 'document_view' doc.id%}" class="card-link">View data</a>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <br>
+                {% endfor %}
+            </div>
+       {% else %}
+        <h2 style="text-align: center;">Apologies no Docs uploaded yet. <a href="{% url 'file_upload' %}">Upload file?</a></h2>
+        
+       {% endif %}
+   </div>
 {% endblock %}
