@@ -1,5 +1,15 @@
 {% extends './base.html' %}
 
 {% block content %}
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni, dicta?</p>
+   <p>Select option below</p>
+   <form>
+    <select class="form-select" name="" id="">
+        <option value="sql">SQL</option>
+        <option value="xml">XML</option>
+        <option value="csv">CSV</option>
+        <option value="json">JSON</option>
+    </select>
+    <br>    
+    <button type="submit">Filter</button>
+   </form>
 {% endblock %}
