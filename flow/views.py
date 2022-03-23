@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from flow.forms import DocumentForm, EditDocument
 from flow.models import Document
-from flow.helpers.utils import check_type, check_file, save_doc_file
+from flow.helpers.utils import check_type, check_file, save_doc_file, remove_file
 
 # Create your views here.
 def index(request):
@@ -65,3 +65,12 @@ def edit_view(request, pk):
         form = EditDocument()
 
     return render(request, 'flow/edit.html', {"document": document, "form": form, "datas": datas}) 
+
+
+
+def delete_view(request, pk):
+    document = get_object_or_404(Document, pk=pk)
+    doc_url = document.document.url
+    remove_file(doc_url)
+    document.delete()
+    return render(request, "flow/delete.html", {"document": document})

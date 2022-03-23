@@ -1,4 +1,4 @@
-import json, csv
+import json, csv, os
 from pathlib import Path
 from assesment.settings import BASE_DIR
 
@@ -74,5 +74,8 @@ def json_save(doc_url, data):
     data = json_read(doc_url)
     with open(current_doc, 'w') as file:
         data.append(dictionary)
-        print(data)
         json.dump(data, file, indent=4)
+
+def remove_file(docs_url):
+    docs_url = BASE_DIR + docs_url
+    os.remove(docs_url)
