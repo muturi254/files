@@ -6,6 +6,8 @@ name = "pypi"
 [packages]
 django = "*"
 django-bootstrap-v5 = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 

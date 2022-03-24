@@ -1,0 +1,1 @@
+web: gunicorn assesment.wsgi --log-file -
